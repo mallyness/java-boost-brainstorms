@@ -30,7 +30,7 @@ public class SingletonClassloadingDemo {
         return instance;
     }
 
-    private static Object loadClass() throws ClassNotFoundException, IllegalAccessException, NoSuchFieldException, NoSuchMethodException, InvocationTargetException, InstantiationException {
+    private static Object loadClass() throws ClassNotFoundException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, InstantiationException {
         Class<?> loadedClass = getLoadedClass(SIMPLE_CLASS_NAME);
         Constructor<?> constructor = loadedClass.getDeclaredConstructor();
         constructor.setAccessible(true);
@@ -39,8 +39,8 @@ public class SingletonClassloadingDemo {
         return instance;
     }
 
-    private static Class<?> getLoadedClass(String simpleClassName) throws ClassNotFoundException {
+    private static Class<?> getLoadedClass(String className) throws ClassNotFoundException {
         CustomClassloader classloader = new CustomClassloader();
-        return classloader.loadClass(simpleClassName);
+        return classloader.loadClass(className);
     }
 }
