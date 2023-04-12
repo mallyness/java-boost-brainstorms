@@ -1,4 +1,4 @@
-package org.javaboost.classloaders;
+package org.javaboost.classloader.onelib;
 
 import java.lang.reflect.Method;
 import java.net.URL;
