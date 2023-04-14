@@ -17,7 +17,7 @@ public class MainApp {
         System.out.println("------ Default method call ---------");
 
         Sun object = new SpaceObject();
-//        object.shine();       compile error!
+//        object.shine();       compile error!  Static method may be invoked on containing interface class only
 //        object.up();          private methods cannot be called
         object.down();       // default with custom overriding is OK
 
