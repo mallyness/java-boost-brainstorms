@@ -53,7 +53,7 @@ public class ReferencesApp {
         myObject = null;
         generateTrashAndRecommendGC();
         try {
-            Reference<? extends MyObject> removedReference = referenceQueue.remove();
+            Reference<? extends MyObject> removedReference = referenceQueue.remove(5_000);
             System.out.println("Removed reference from referenceQueue: " + removedReference);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -84,7 +84,8 @@ class MyObject {
 
     @Override
     protected void finalize() {
-        System.out.println("Finalize method for object was invoked.");  // works as need
+//        System.out.println("Finalize method for object was invoked.");  // works as need
+        System.out.println(this + ": Finalize method was invoked.");  // works as need
 //        System.out.println("Finalize method for object " + this + " was invoked.");  // freezing
     }
 }
