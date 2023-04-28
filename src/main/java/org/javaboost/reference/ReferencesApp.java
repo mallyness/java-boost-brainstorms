@@ -39,9 +39,9 @@ public class ReferencesApp {
     }
 
     /**
-     *  1. finalize method in ReferenceQueue in FinalizeThread
-     *  2. removed by gc
-     *  3. reference to myObject go to ReferenceQueue
+     * 1. finalize method in ReferenceQueue in FinalizeThread
+     * 2. phantomReference go to ReferenceQueue
+     * 3. removed by gc
      */
     private static void checkPhantomReference() {
         MyObject myObject = new MyObject();
