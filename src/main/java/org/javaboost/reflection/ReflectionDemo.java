@@ -1,28 +1,14 @@
 package org.javaboost.reflection;
 
-import java.awt.color.ColorSpace;
 import java.lang.reflect.Field;
-import java.util.Arrays;
 
 public class ReflectionDemo {
 
     public static void main(String[] args) throws Exception {
-        checkEnumAccess();
         checkRecordsAccess();
         checkFinalField();
         checkStaticField();
         checkConstant();
-    }
-
-    private static void checkEnumAccess() throws ClassNotFoundException, IllegalAccessException {
-        ClassLoader classLoader = ReflectionDemo.class.getClassLoader();
-        Class<?> aClass = classLoader.loadClass("org.javaboost.reflection.Color");
-        Field[] fields = aClass.getFields();
-        System.out.println(Arrays.asList(fields));
-        for (Field field : fields) {
-            field.setAccessible(true);
-            field.set(aClass, ColorSpace.CS_GRAY); // IllegalAccessException
-        }
     }
 
     private static void checkRecordsAccess() throws NoSuchFieldException, IllegalAccessException {
@@ -58,10 +44,6 @@ public class ReflectionDemo {
         System.out.println("Before changes: " + field.get(finalClass));
         field.set(finalClass, "changed_constant"); // IllegalAccessException
     }
-}
-
-enum Color {
-    RED, GREEN, BLUE
 }
 
 final class FinalClass {
